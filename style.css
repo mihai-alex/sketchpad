@@ -1,4 +1,9 @@
 body {
+    background-image: url("./img/background-paper.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
     background-color: gainsboro;
     display: flex;
@@ -75,6 +80,7 @@ body {
 }
 
 #grid-buttons button:active {
+    color: goldenrod;
     border-color: goldenrod;
     box-shadow: 0 0 .5rem goldenrod;
     transform: scale(0.95);
@@ -115,6 +121,7 @@ body {
 #size-change-warning {
     margin: 12px;
     text-align: center;
+    font-weight: bold;
     color: red;
     opacity: 0;
 }
@@ -149,4 +156,9 @@ body {
 
 .slider::-webkit-slider-thumb:active {
     transform: scale(0.8);
+}
+
+#grid-size-slider #current-size {
+    font-size: 18px;
+    font-weight: bold;
 }
