@@ -118,6 +118,11 @@ body {
     border-radius: 24px;
 }
 
+#grid-size-slider #current-size {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 #size-change-warning {
     margin: 12px;
     text-align: center;
@@ -156,9 +161,4 @@ body {
 
 .slider::-webkit-slider-thumb:active {
     transform: scale(0.8);
-}
-
-#grid-size-slider #current-size {
-    font-size: 18px;
-    font-weight: bold;
 }
