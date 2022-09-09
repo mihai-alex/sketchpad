@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sketchpad</title>
+    <title>SKETCHPAD</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./app.js" defer></script>
 </head>
@@ -15,9 +15,23 @@
         <h1 id="title">SKETCHPAD</h1>
     </div>
 
-    <div id="grid-container"></div>
+    <div id="app-container">
+        <div id="grid-buttons">
+            <button type="button">Rainbow trail</button>
+            <button type="button">Shading trail</button>
+        </div>
 
-    <div id="grid-size-slider"></div>
+        <div id="grid-container"></div>
+
+        <div id="grid-size-slider">
+            <p id="current-size">current size: </p>
+            <input type="range" min="1" max="100" value="50" class="slider" id="size-slider">
+            <p>change the size of the sketchpad</p>
+            <p id="size-change-warning">
+                WARNING:<br>Changing the size will erase the current sketch!
+            </p>
+        </div>
+    </div>
 </body>
 
 </html>

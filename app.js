@@ -1,5 +1,3 @@
-const gridDimension = 50;
-
 function createGrid(dim) {
     const container = document.getElementById("grid-container");
     const squareDivWidth = `${container.clientWidth / dim - 1}px`;
@@ -19,7 +17,10 @@ function createGrid(dim) {
 function destroyGrid() {
     const squareDivs = document.getElementsByClassName("square-div");
     let squareDivsArray = Array.from(squareDivs);
-    squareDivsArray.forEach(squareDiv => removeEventListenersFromGrid);
+    squareDivsArray.forEach(squareDiv => {
+        // removeEventListenersFromGrid();
+        squareDiv.parentElement.removeChild(squareDiv);
+    });
 }
 
 function gridHoverEvent(e) {
@@ -27,6 +28,7 @@ function gridHoverEvent(e) {
 }
 
 function addEventListenersToGrid(squareDiv) {
+
     squareDiv.addEventListener("mousedown", gridHoverEvent);
     squareDiv.addEventListener("mouseover", e => {
         if (e.buttons == 1) {
@@ -34,13 +36,30 @@ function addEventListenersToGrid(squareDiv) {
         }
     });
 }
-function removeEventListenersFromGrid() {
-    squareDiv.removeEventListener("mousedown", gridHoverEvent);
-    squareDiv.removeEventListener("mouseover", gridHoverEvent);
+// function removeEventListenersFromGrid(squareDiv) {
+//     squareDiv.removeEventListener("mousedown", gridHoverEvent);
+//     squareDiv.removeEventListener("mouseover", gridHoverEvent);
+// }
+
+function sizeSliderOnChange() {
+    const slider = document.getElementById("size-slider");
+    const oldSliderValue = slider.value;
+    slider.onchange = () => {
+        destroyGrid();
+        createGrid(slider.value);
+    };
+    slider.oninput = () => {
+        const sizePara = document.getElementById("current-size");
+        sizePara.textContent = "current size: " + slider.value + 'x' + slider.value;
+    }
 }
 
 function app() {
-    createGrid(gridDimension);
+    const defaultGridSize = document.getElementById("size-slider").value;
+    const sizePara = document.getElementById("current-size");
+    sizePara.textContent = "current size: " + defaultGridSize + 'x' + defaultGridSize;
+    createGrid(defaultGridSize);
+    sizeSliderOnChange();
 }
 
 app();
