@@ -7,7 +7,7 @@ body {
 }
 
 #title-container {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
     margin: 16px;
 }
 
@@ -18,9 +18,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1px;
-    width: 499px;
-    height: auto;
+    width: 512px;
+    height: 512px;
     border-style: double;
     border-color: gray;
     border-width: 4px;
@@ -28,6 +27,5 @@ body {
 
 .square-div {
     background-color: white;
-    width: 9px;
-    height: 9px;
+    user-select: none;
 }
