@@ -1,9 +1,9 @@
-const gridDimension = [1, 2, 4, 8, 16, 32, 64, 128];
+const gridDimension = 50;
 
 function createGrid(dim) {
     const container = document.getElementById("grid-container");
-    const squareDivWidth = `${container.clientWidth / dim}px`;
-    const squareDivHeight = `${container.clientHeight / dim}px`;
+    const squareDivWidth = `${container.clientWidth / dim - 1}px`;
+    const squareDivHeight = `${container.clientHeight / dim - 1}px`;
     for (let row = 0; row < dim; row++) {
         for (let col = 0; col < dim; col++) {
             let squareDiv = document.createElement("div");
@@ -40,7 +40,7 @@ function removeEventListenersFromGrid() {
 }
 
 function app() {
-    createGrid(gridDimension[6]);
+    createGrid(gridDimension);
 }
 
 app();
