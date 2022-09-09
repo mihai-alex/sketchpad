@@ -18,7 +18,7 @@ function destroyGrid() {
     const squareDivs = document.getElementsByClassName("square-div");
     let squareDivsArray = Array.from(squareDivs);
     squareDivsArray.forEach(squareDiv => {
-        // removeEventListenersFromGrid();
+        removeEventListenersFromGrid(squareDiv);
         squareDiv.parentElement.removeChild(squareDiv);
     });
 }
@@ -27,19 +27,21 @@ function gridHoverEvent(e) {
     e.target.style.backgroundColor = "black";
 }
 
-function addEventListenersToGrid(squareDiv) {
-
-    squareDiv.addEventListener("mousedown", gridHoverEvent);
-    squareDiv.addEventListener("mouseover", e => {
-        if (e.buttons == 1) {
-            gridHoverEvent(e);
-        }
-    });
+function mouseOverEventFunction(e) {
+    if (e.buttons == 1) {
+        gridHoverEvent(e);
+    }
 }
-// function removeEventListenersFromGrid(squareDiv) {
-//     squareDiv.removeEventListener("mousedown", gridHoverEvent);
-//     squareDiv.removeEventListener("mouseover", gridHoverEvent);
-// }
+
+function addEventListenersToGrid(squareDiv) {
+    squareDiv.addEventListener("mousedown", gridHoverEvent);
+    squareDiv.addEventListener("mouseover", mouseOverEventFunction);
+}
+
+function removeEventListenersFromGrid(squareDiv) {
+    squareDiv.removeEventListener("mousedown", gridHoverEvent);
+    squareDiv.removeEventListener("mouseover", mouseOverEventFunction);
+}
 
 function sizeSliderOnChange() {
     const slider = document.getElementById("size-slider");
