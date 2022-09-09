@@ -1,19 +1,33 @@
-html {
+body {
     background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title-container {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 16px;
 }
 
 #grid-container {
-    background-color: gray;
+    background-color: whitesmoke;
     display: flex;
+    flex-shrink: 0;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    padding: 4px;
-    gap: 4px;
+    gap: 1px;
+    width: 499px;
+    height: auto;
+    border-style: double;
+    border-color: gray;
+    border-width: 4px;
 }
 
 .square-div {
-    background-color: whitesmoke;
-    height: 86px;
-    width: 86px;
+    background-color: white;
+    width: 9px;
+    height: 9px;
 }
