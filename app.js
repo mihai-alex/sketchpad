@@ -1,4 +1,4 @@
-let mouseTrailType = "black";
+let mouseTrailType = () => "black";
 
 function createGrid(dim) {
     const container = document.getElementById("grid-container");
@@ -26,7 +26,7 @@ function destroyGrid() {
 }
 
 function gridHoverEvent(e) {
-    e.target.style.backgroundColor = mouseTrailType;
+    e.target.style.backgroundColor = mouseTrailType();
 }
 
 function mouseOverEventFunction(e) {
@@ -45,30 +45,40 @@ function removeEventListenersFromGrid(squareDiv) {
     squareDiv.removeEventListener("mouseover", mouseOverEventFunction);
 }
 
+function getRandomRgb() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    return `rgb(${red},${green},${blue})`;
+}
+
 function normalButtonEventFunc() {
-    mouseTrailType = "black";
+    resetButtonsTextColor();
+    mouseTrailType = () => "black";
+}
+
+function resetButtonsTextColor() {
     document.getElementById("random").style.color = "black";
 }
 
 function randomButtonEventFunc() {
-    const red = Math.floor(Math.random() * 256);
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
-    mouseTrailType = `rgb(${red},${green},${blue})`;
-    document.getElementById("random").style.color = mouseTrailType;
+    let randomRgb = getRandomRgb();
+    mouseTrailType = () => randomRgb;
+    document.getElementById("random").style.color = randomRgb;
 }
 
 function rainbowButtonEventFunc() {
-    document.getElementById("random").style.color = "black";
+    resetButtonsTextColor();
+    mouseTrailType = getRandomRgb;
 }
 
 function shadeButtonEventFunc() {
-    document.getElementById("random").style.color = "black";
+    resetButtonsTextColor();
 }
 
 function eraserButtonEventFunc() {
-    mouseTrailType = "white";
-    document.getElementById("random").style.color = "black";
+    resetButtonsTextColor();
+    mouseTrailType = () => "white";
 }
 
 function addButtonEventListeners() {
