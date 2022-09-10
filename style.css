@@ -48,41 +48,39 @@ body {
     justify-content: space-around;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    width: 1200px;
-    gap: 60px;
+    width: 1100px;
 }
 
 #grid-buttons {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 400px;
+    width: 220px;
 }
 
 #grid-buttons button {
-    border: .2rem solid black;
-    border-radius: .2rem;
-    margin: .5rem;
-    font-size: 1.25rem;
-    padding: 1rem .5rem;
+    border: 3px solid black;
+    border-radius: 8px;
+    margin: 2px;
+    font-size: 16px;
+    padding: 16px 8px;
     transition: all 0.05s ease-out;
-    width: 10rem;
     text-align: center;
     color: black;
     background: whitesmoke(0, 0, 0, 0.4);
-    text-shadow: 0 0 .5rem gray;
+    text-shadow: 0 0 4px gray;
 }
 
 #grid-buttons button:hover {
     border-color: goldenrod;
-    box-shadow: 0 0 .5rem goldenrod;
+    box-shadow: 0 0 4px goldenrod;
     cursor: pointer;
 }
 
 #grid-buttons button:active {
     color: goldenrod;
     border-color: goldenrod;
-    box-shadow: 0 0 .5rem goldenrod;
+    box-shadow: 0 0 4px goldenrod;
     transform: scale(0.95);
     cursor: pointer;
 }
@@ -93,12 +91,12 @@ body {
     justify-content: center;
     align-items: center;
     gap: 4px;
-    width: 400px;
+    width: 220px;
 }
 
 .slider {
     transition: all 0.05s ease-out;
-    box-shadow: 0 0 .5rem gray;
+    box-shadow: 0 0 4px gray;
 
     /* Override default CSS styles */
     -webkit-appearance: none;
@@ -140,7 +138,7 @@ body {
 }
 
 .slider::-webkit-slider-thumb {
-    box-shadow: 0 0 .5rem lightgray;
+    box-shadow: 0 0 4px lightgray;
 
     transition: all 0.06s ease-in;
 
