@@ -47,7 +47,7 @@ function removeEventListenersFromGrid(squareDiv) {
 
 function normalButtonEventFunc() {
     mouseTrailType = "black";
-    document.getElementById("random").style.color = mouseTrailType;
+    document.getElementById("random").style.color = "black";
 }
 
 function randomButtonEventFunc() {
@@ -59,11 +59,16 @@ function randomButtonEventFunc() {
 }
 
 function rainbowButtonEventFunc() {
-    document.getElementById("random").style.color = mouseTrailType;
+    document.getElementById("random").style.color = "black";
 }
 
 function shadeButtonEventFunc() {
-    document.getElementById("random").style.color = mouseTrailType;
+    document.getElementById("random").style.color = "black";
+}
+
+function eraserButtonEventFunc() {
+    mouseTrailType = "white";
+    document.getElementById("random").style.color = "black";
 }
 
 function addButtonEventListeners() {
@@ -71,10 +76,12 @@ function addButtonEventListeners() {
     const random = document.getElementById("random");
     const rainbow = document.getElementById("rainbow");
     const shade = document.getElementById("shade");
+    const eraser = document.getElementById("eraser");
     normal.addEventListener("click", normalButtonEventFunc);
     random.addEventListener("click", randomButtonEventFunc);
     rainbow.addEventListener("click", rainbowButtonEventFunc);
     shade.addEventListener("click", shadeButtonEventFunc);
+    eraser.addEventListener("click", eraserButtonEventFunc);
 }
 
 function removeButtonEventListeners() {
@@ -82,10 +89,12 @@ function removeButtonEventListeners() {
     const random = document.getElementById("random");
     const rainbow = document.getElementById("rainbow");
     const shade = document.getElementById("shade");
+    const eraser = document.getElementById("eraser");
     normal.removeEventListener("click", normalButtonEventFunc);
     random.removeEventListener("click", rainbowButtonEventFunc);
     rainbow.removeEventListener("click", randomButtonEventFunc);
     shade.removeEventListener("click", shadeButtonEventFunc);
+    eraser.removeEventListener("click", eraserButtonEventFunc);
 }
 
 function sizeSliderOnChange() {
