@@ -1,3 +1,5 @@
+let mouseTrailType = "black";
+
 function createGrid(dim) {
     const container = document.getElementById("grid-container");
     const squareDivWidth = `${container.clientWidth / dim - 1}px`;
@@ -24,7 +26,7 @@ function destroyGrid() {
 }
 
 function gridHoverEvent(e) {
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = mouseTrailType;
 }
 
 function mouseOverEventFunction(e) {
@@ -41,6 +43,49 @@ function addEventListenersToGrid(squareDiv) {
 function removeEventListenersFromGrid(squareDiv) {
     squareDiv.removeEventListener("mousedown", gridHoverEvent);
     squareDiv.removeEventListener("mouseover", mouseOverEventFunction);
+}
+
+function normalButtonEventFunc() {
+    mouseTrailType = "black";
+    document.getElementById("random").style.color = mouseTrailType;
+}
+
+function randomButtonEventFunc() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    mouseTrailType = `rgb(${red},${green},${blue})`;
+    document.getElementById("random").style.color = mouseTrailType;
+}
+
+function rainbowButtonEventFunc() {
+    document.getElementById("random").style.color = mouseTrailType;
+}
+
+function shadeButtonEventFunc() {
+    document.getElementById("random").style.color = mouseTrailType;
+}
+
+function addButtonEventListeners() {
+    const normal = document.getElementById("normal");
+    const random = document.getElementById("random");
+    const rainbow = document.getElementById("rainbow");
+    const shade = document.getElementById("shade");
+    normal.addEventListener("click", normalButtonEventFunc);
+    random.addEventListener("click", randomButtonEventFunc);
+    rainbow.addEventListener("click", rainbowButtonEventFunc);
+    shade.addEventListener("click", shadeButtonEventFunc);
+}
+
+function removeButtonEventListeners() {
+    const normal = document.getElementById("normal");
+    const random = document.getElementById("random");
+    const rainbow = document.getElementById("rainbow");
+    const shade = document.getElementById("shade");
+    normal.removeEventListener("click", normalButtonEventFunc);
+    random.removeEventListener("click", rainbowButtonEventFunc);
+    rainbow.removeEventListener("click", randomButtonEventFunc);
+    shade.removeEventListener("click", shadeButtonEventFunc);
 }
 
 function sizeSliderOnChange() {
@@ -60,6 +105,7 @@ function app() {
     const defaultGridSize = document.getElementById("size-slider").value;
     const sizePara = document.getElementById("current-size");
     sizePara.textContent = "current size: " + defaultGridSize + 'x' + defaultGridSize;
+    addButtonEventListeners();
     createGrid(defaultGridSize);
     sizeSliderOnChange();
 }
