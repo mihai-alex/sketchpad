@@ -1,4 +1,4 @@
-let mouseTrailType = () => "black";
+let mouseTrailType = () => "black";  // variable that contains trail style func
 
 function createGrid(dim) {
     const container = document.getElementById("grid-container");
@@ -81,17 +81,26 @@ function eraserButtonEventFunc() {
     mouseTrailType = () => "white";
 }
 
+function resetButtonEventFunc() {
+    const squareDivs = Array.from(document.getElementsByClassName("square-div"));
+    squareDivs.forEach(div => {
+        div.style.backgroundColor = "white";
+    });
+}
+
 function addButtonEventListeners() {
     const normal = document.getElementById("normal");
     const random = document.getElementById("random");
     const rainbow = document.getElementById("rainbow");
     const shade = document.getElementById("shade");
     const eraser = document.getElementById("eraser");
+    const reset = document.getElementById("reset");
     normal.addEventListener("click", normalButtonEventFunc);
     random.addEventListener("click", randomButtonEventFunc);
     rainbow.addEventListener("click", rainbowButtonEventFunc);
     shade.addEventListener("click", shadeButtonEventFunc);
     eraser.addEventListener("click", eraserButtonEventFunc);
+    reset.addEventListener("click", resetButtonEventFunc);
 }
 
 function removeButtonEventListeners() {
@@ -105,6 +114,7 @@ function removeButtonEventListeners() {
     rainbow.removeEventListener("click", randomButtonEventFunc);
     shade.removeEventListener("click", shadeButtonEventFunc);
     eraser.removeEventListener("click", eraserButtonEventFunc);
+    reset.removeEventListener("click", resetButtonEventFunc);
 }
 
 function sizeSliderOnChange() {

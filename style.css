@@ -78,9 +78,36 @@ body {
 }
 
 #grid-buttons button:active {
-    color: goldenrod;
     border-color: goldenrod;
     box-shadow: 0 0 4px goldenrod;
+    transform: scale(0.95);
+    cursor: pointer;
+}
+
+.btn#reset {
+    border: 3px solid grey;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 24px 8px;
+    transition: all 0.05s ease-out;
+    text-align: center;
+    color: black;
+    background: whitesmoke(0, 0, 0, 0.4);
+}
+
+.btn#reset:hover {
+    transform: scale(1.1);
+    color: red;
+    border-color: red;
+    box-shadow: 0 0 4px red;
+    cursor: pointer;
+}
+
+.btn#reset:active {
+    color: red;
+    border-color: red;
+    box-shadow: 0 0 4px red;
     transform: scale(0.95);
     cursor: pointer;
 }
