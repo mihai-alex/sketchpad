@@ -1,4 +1,4 @@
-let mouseTrailType = () => "black";  // variable that contains trail style func
+let mouseTrailType = normalButtonEventFunc;  // variable that contains trail style func
 
 function createGrid(dim) {
     const container = document.getElementById("grid-container");
@@ -26,7 +26,7 @@ function destroyGrid() {
 }
 
 function gridHoverEvent(e) {
-    e.target.style.backgroundColor = mouseTrailType();
+    e.target.style.cssText += mouseTrailType();
 }
 
 function mouseOverEventFunction(e) {
@@ -45,6 +45,14 @@ function removeEventListenersFromGrid(squareDiv) {
     squareDiv.removeEventListener("mouseover", mouseOverEventFunction);
 }
 
+function resetButtonSelected() {
+    document.getElementById("random").style.color = "black";
+    const buttons = Array.from(document.getElementsByClassName("btn"));
+    buttons.forEach(button => {
+        button.style.cssText = "background-color: whitesmoke;";
+    });
+}
+
 function getRandomRgb() {
     const red = Math.floor(Math.random() * 256);
     const green = Math.floor(Math.random() * 256);
@@ -52,33 +60,42 @@ function getRandomRgb() {
     return `rgb(${red},${green},${blue})`;
 }
 
-function normalButtonEventFunc() {
-    resetButtonsTextColor();
-    mouseTrailType = () => "black";
+function getRandomRgbBackgroundColor() {
+    let randomRgb = getRandomRgb();
+    return `background-color: ${randomRgb};`;
 }
 
-function resetButtonsTextColor() {
-    document.getElementById("random").style.color = "black";
+function normalButtonEventFunc() {
+    resetButtonSelected();
+    document.getElementById("normal").style.cssText = "background-color: lightgrey;";
+    mouseTrailType = () => "background-color: black;";
 }
 
 function randomButtonEventFunc() {
+    resetButtonSelected();
+    document.getElementById("random").style.cssText = "background-color: lightgrey;";
     let randomRgb = getRandomRgb();
-    mouseTrailType = () => randomRgb;
+    let randomRgbBackgroundColor = `background-color: ${randomRgb};`;
+    mouseTrailType = () => randomRgbBackgroundColor;
     document.getElementById("random").style.color = randomRgb;
 }
 
 function rainbowButtonEventFunc() {
-    resetButtonsTextColor();
-    mouseTrailType = getRandomRgb;
+    resetButtonSelected();
+    document.getElementById("rainbow").style.cssText = "background-color: lightgrey;";
+    mouseTrailType = getRandomRgbBackgroundColor;
 }
 
-function shadeButtonEventFunc() {
-    resetButtonsTextColor();
+function shadeButtonEventFunc(event) {
+    resetButtonSelected();
+    document.getElementById("shade").style.cssText = "background-color: lightgrey;";
+    mouseTrailType = () => "background-color: black;";
 }
 
 function eraserButtonEventFunc() {
-    resetButtonsTextColor();
-    mouseTrailType = () => "white";
+    resetButtonSelected();
+    document.getElementById("eraser").style.cssText = "background-color: lightgrey;";
+    mouseTrailType = () => "background-color: white;";
 }
 
 function resetButtonEventFunc() {
@@ -135,6 +152,7 @@ function app() {
     const sizePara = document.getElementById("current-size");
     sizePara.textContent = "current size: " + defaultGridSize + 'x' + defaultGridSize;
     addButtonEventListeners();
+    document.getElementById("normal").style.cssText = "background-color: lightgrey;";
     createGrid(defaultGridSize);
     sizeSliderOnChange();
 }
