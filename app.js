@@ -109,7 +109,7 @@ function shadeButtonEventUtility(e) {
     let currentRgbArray = getRgbValuesArray(currentRgbString);
     let a = getAlphaValueFromRgbArray(currentRgbArray);
     if (currentRgbString === "rgb(255, 255, 255)") {
-        a = 0;
+        a = -0.2;  // a will get increased to 0 below:
     }
     if (a < 1) {
         a += 0.2;
