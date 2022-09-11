@@ -162,6 +162,7 @@ body {
 
 .slider:hover {
     opacity: 1;
+    cursor: grab;
 }
 
 .slider:hover+#size-change-warning {
@@ -180,7 +181,7 @@ body {
     width: 22px;
     height: 22px;
     background: black;
-    cursor: pointer;
+    cursor: grabbing;
     border-radius: 24px;
 }
 
