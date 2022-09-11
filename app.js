@@ -26,6 +26,10 @@ function destroyGrid() {
 }
 
 function gridHoverEvent(e) {
+    if (document.getElementById("shade").className == "btn-selected") {
+        cssStyleString = shadeButtonEventUtility(e);
+        mouseTrailType = () => cssStyleString;
+    }
     e.target.style.cssText += mouseTrailType();
 }
 
@@ -59,10 +63,9 @@ function getRgbValuesArray(rgbString) {
     return rgbString.replace(/^(rgb|rgba)\(/, '').replace(/\)$/, '').replace(/\s/g, '').split(',');
 }
 
-function getAlphaValueFromRgb(rgbString) {
-    let values = getRgbValuesArray(rgbString);
-    if (values.length == 4) {  // the "a" in "rgba" is specified
-        return values[3];
+function getAlphaValueFromRgbArray(rgbArray) {
+    if (rgbArray.length == 4) {
+        return parseFloat(rgbArray[3]);
     }
     return 1;  // the "a" value in "rgb" is the default 1
 }
@@ -101,10 +104,23 @@ function rainbowButtonEventFunc() {
     mouseTrailType = getRandomRgbBackgroundColor;
 }
 
+function shadeButtonEventUtility(e) {
+    let currentRgbString = window.getComputedStyle(e.target).backgroundColor.toString();
+    let currentRgbArray = getRgbValuesArray(currentRgbString);
+    let a = getAlphaValueFromRgbArray(currentRgbArray);
+    if (currentRgbString === "rgb(255, 255, 255)") {
+        a = 0;
+    }
+    if (a < 1) {
+        a += 0.2;
+        a = a.toFixed(1);
+    }
+    return `background-color: rgba(0, 0, 0, ${a});`
+}
+
 function shadeButtonEventFunc() {
     resetButtonSelected();
     document.getElementById("shade").className = "btn-selected";
-    mouseTrailType = () => "background-color: black;";
 }
 
 function eraserButtonEventFunc() {
