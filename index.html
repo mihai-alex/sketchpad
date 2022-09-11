@@ -18,19 +18,22 @@
 
     <div id="app-container">
         <div id="grid-buttons">
-            <button type="button" class="btn" id="normal">NORMAL</button>
-            <button type="button" class="btn" id="random">RANDOM</button>
-            <button type="button" class="btn" id="rainbow">RAINBOW</button>
-            <button type="button" class="btn" id="shade">SHADE</button>
-            <button type="button" class="btn" id="eraser">ERASER</button>
+            <button type="button" title="Normal colored trail. Black by default." class="btn"
+                id="normal">NORMAL</button>
+            <button type="button" title="Random color" class="btn" id="random">RANDOM</button>
+            <button type="button" title="Multiple colors" class="btn" id="rainbow">RAINBOW</button>
+            <button type="button" title="Increasingly darkens white pixels. Turns colored pixels black." class="btn"
+                id="shade">SHADE</button>
+            <button type="button" title="Erase pixels" class="btn" id="eraser">ERASER</button>
         </div>
 
         <div id="grid-container"></div>
 
         <div id="grid-size-slider">
-            <button type="button" class="btn" id="reset">RESET</button>
+            <button type="button" title="Erase the current sketch" class="btn" id="reset">RESET</button>
             <p id="current-size"></p>
-            <input type="range" min="1" max="100" value="50" class="slider" id="size-slider">
+            <input type="range" min="1" max="100" value="50" title="click and/or drag left to decrease, right to increase"
+                class="slider" id="size-slider">
             <p id="size-change-warning">
                 WARNING:<br>Changing the size will erase the current sketch!
             </p>
