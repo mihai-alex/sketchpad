@@ -5,7 +5,7 @@ body {
     background-size: cover;
 
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
-    background-color: gainsboro;
+    background-color: rgb(220, 220, 220);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,12 +19,12 @@ body {
 #title:hover {
     transition: all 0.08s ease-in-out;
     transform: scale(1.15);
-    color: goldenrod;
+    color: rgb(218, 165, 32);
     cursor: pointer;
 }
 
 #grid-container {
-    background-color: whitesmoke;
+    background-color: rgb(245, 245, 245);
     display: flex;
     flex-shrink: 0;
     flex-wrap: wrap;
@@ -34,12 +34,12 @@ body {
     width: 512px;
     height: 512px;
     border-style: double;
-    border-color: gray;
+    border-color: rgb(128, 128, 128);
     border-width: 4px;
 }
 
 .square-div {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     user-select: none;
 }
 
@@ -51,6 +51,10 @@ body {
     width: 1100px;
 }
 
+#grid-buttons .btn-selected {
+    background-color: rgb(245, 245, 245);
+}
+
 #grid-buttons {
     display: flex;
     flex-direction: column;
@@ -59,7 +63,7 @@ body {
 }
 
 #grid-buttons button {
-    border: 3px solid black;
+    border: 3px solid rgb(0, 0, 0);
     border-radius: 8px;
     margin: 2px;
     font-size: 16px;
@@ -67,47 +71,47 @@ body {
     padding: 16px 8px;
     transition: all 0.05s ease-out;
     text-align: center;
-    color: black;
-    background-color: whitesmoke;
+    color: rgb(0, 0, 0);
+    background-color: rgb(211, 211, 211);
 }
 
 #grid-buttons button:hover {
-    border-color: goldenrod;
-    box-shadow: 0 0 4px goldenrod;
+    border-color: rgb(218, 165, 32);
+    box-shadow: 0 0 4px rgb(218, 165, 32);
     cursor: pointer;
 }
 
 #grid-buttons button:active {
-    border-color: goldenrod;
-    box-shadow: 0 0 4px goldenrod;
+    border-color: rgb(218, 165, 32);
+    box-shadow: 0 0 4px rgb(218, 165, 32);
     transform: scale(0.95);
     cursor: pointer;
 }
 
 .btn#reset {
-    border: 3px solid grey;
+    border: 3px solid rgb(128, 128, 128);
     border-radius: 50%;
     font-size: 16px;
     font-weight: bold;
     padding: 24px 8px;
     transition: all 0.05s ease-out;
     text-align: center;
-    color: black;
-    background-color: whitesmoke;
+    color: rgb(0, 0, 0);
+    background-color: rgb(245, 245, 245);
 }
 
 .btn#reset:hover {
     transform: scale(1.1);
-    color: red;
-    border-color: red;
-    box-shadow: 0 0 4px red;
+    color: rgb(255, 0, 0);
+    border-color: rgb(255, 0, 0);
+    box-shadow: 0 0 4px rgb(255, 0, 0);
     cursor: pointer;
 }
 
 .btn#reset:active {
-    color: red;
-    border-color: red;
-    box-shadow: 0 0 4px red;
+    color: rgb(255, 0, 0);
+    border-color: rgb(255, 0, 0);
+    box-shadow: 0 0 4px rgb(255, 0, 0);
     transform: scale(0.95);
     cursor: pointer;
 }
@@ -152,7 +156,7 @@ body {
     margin: 12px;
     text-align: center;
     font-weight: bold;
-    color: red;
+    color: rgb(255, 0, 0);
     opacity: 0;
 }
 

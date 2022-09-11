@@ -47,10 +47,24 @@ function removeEventListenersFromGrid(squareDiv) {
 
 function resetButtonSelected() {
     document.getElementById("random").style.color = "black";
-    const buttons = Array.from(document.getElementsByClassName("btn"));
+    const buttons = Array.from(document.getElementsByClassName("btn-selected"));
     buttons.forEach(button => {
-        button.style.cssText = "background-color: whitesmoke;";
+        button.className = "btn";
     });
+}
+
+function getRgbValuesArray(rgbString) {
+    // erase the "rgb(" / "rgba(" and ")" parts, erase all white spaces
+    // finally, split the remaining values into array and return it
+    return rgbString.replace(/^(rgb|rgba)\(/, '').replace(/\)$/, '').replace(/\s/g, '').split(',');
+}
+
+function getAlphaValueFromRgb(rgbString) {
+    let values = getRgbValuesArray(rgbString);
+    if (values.length == 4) {  // the "a" in "rgba" is specified
+        return values[3];
+    }
+    return 1;  // the "a" value in "rgb" is the default 1
 }
 
 function getRandomRgb() {
@@ -67,34 +81,35 @@ function getRandomRgbBackgroundColor() {
 
 function normalButtonEventFunc() {
     resetButtonSelected();
-    document.getElementById("normal").style.cssText = "background-color: lightgrey;";
+    document.getElementById("normal").className = "btn-selected";
     mouseTrailType = () => "background-color: black;";
 }
 
 function randomButtonEventFunc() {
     resetButtonSelected();
-    document.getElementById("random").style.cssText = "background-color: lightgrey;";
+    let randomButton = document.getElementById("random")
     let randomRgb = getRandomRgb();
     let randomRgbBackgroundColor = `background-color: ${randomRgb};`;
+    randomButton.className = "btn-selected";
+    randomButton.style.color = randomRgb;
     mouseTrailType = () => randomRgbBackgroundColor;
-    document.getElementById("random").style.color = randomRgb;
 }
 
 function rainbowButtonEventFunc() {
     resetButtonSelected();
-    document.getElementById("rainbow").style.cssText = "background-color: lightgrey;";
+    document.getElementById("rainbow").className = "btn-selected";
     mouseTrailType = getRandomRgbBackgroundColor;
 }
 
-function shadeButtonEventFunc(event) {
+function shadeButtonEventFunc() {
     resetButtonSelected();
-    document.getElementById("shade").style.cssText = "background-color: lightgrey;";
+    document.getElementById("shade").className = "btn-selected";
     mouseTrailType = () => "background-color: black;";
 }
 
 function eraserButtonEventFunc() {
     resetButtonSelected();
-    document.getElementById("eraser").style.cssText = "background-color: lightgrey;";
+    document.getElementById("eraser").className = "btn-selected";
     mouseTrailType = () => "background-color: white;";
 }
 
@@ -152,7 +167,7 @@ function app() {
     const sizePara = document.getElementById("current-size");
     sizePara.textContent = "current size: " + defaultGridSize + 'x' + defaultGridSize;
     addButtonEventListeners();
-    document.getElementById("normal").style.cssText = "background-color: lightgrey;";
+    document.getElementById("normal").className = "btn-selected";
     createGrid(defaultGridSize);
     sizeSliderOnChange();
 }
