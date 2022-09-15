@@ -18,7 +18,11 @@
 
     <div id="app-container">
         <div id="grid-buttons">
-            <button type="button" title="Black trail" class="btn" id="normal">NORMAL</button>
+            <div id="color-picker-container">
+                <input type="color" id="color-picker" name="choose-color" value="#000000">
+                <label for="choose-color">Choose a color</label>
+            </div>
+            <button type="button" title="The chosen color" class="btn" id="normal">CHOSEN</button>
             <button type="button" title="Random color" class="btn" id="random">RANDOM</button>
             <button type="button" title="Multiple colors" class="btn" id="rainbow">RAINBOW</button>
             <button type="button" title="Increasingly darkens white pixels. Turns colored pixels black." class="btn"

@@ -82,10 +82,20 @@ function getRandomRgbBackgroundColor() {
     return `background-color: ${randomRgb};`;
 }
 
+function colorPickerEventFunc() {
+    let colorValue = document.getElementById("color-picker").value;
+    let normalButton = document.getElementById("normal");
+    normalButton.style.color = colorValue;
+    mouseTrailType = () => "background-color: " + colorValue + ';';
+}
+
 function normalButtonEventFunc() {
     resetButtonSelected();
-    document.getElementById("normal").className = "btn-selected";
-    mouseTrailType = () => "background-color: black;";
+    let normalButton = document.getElementById("normal");
+    let colorValue = document.getElementById("color-picker").value
+    normalButton.className = "btn-selected";
+    normalButton.style.color = colorValue;
+    mouseTrailType = () => "background-color: " + colorValue + ';';
 }
 
 function randomButtonEventFunc() {
@@ -137,12 +147,14 @@ function resetButtonEventFunc() {
 }
 
 function addButtonEventListeners() {
+    const colorPicker = document.getElementById("color-picker");
     const normal = document.getElementById("normal");
     const random = document.getElementById("random");
     const rainbow = document.getElementById("rainbow");
     const shade = document.getElementById("shade");
     const eraser = document.getElementById("eraser");
     const reset = document.getElementById("reset");
+    colorPicker.addEventListener("change", colorPickerEventFunc);
     normal.addEventListener("click", normalButtonEventFunc);
     random.addEventListener("click", randomButtonEventFunc);
     rainbow.addEventListener("click", rainbowButtonEventFunc);
@@ -152,11 +164,13 @@ function addButtonEventListeners() {
 }
 
 function removeButtonEventListeners() {
+    const colorPicker = document.getElementById("color-picker");
     const normal = document.getElementById("normal");
     const random = document.getElementById("random");
     const rainbow = document.getElementById("rainbow");
     const shade = document.getElementById("shade");
     const eraser = document.getElementById("eraser");
+    colorPicker.removeEventListener("change", colorPickerEventFunc);
     normal.removeEventListener("click", normalButtonEventFunc);
     random.removeEventListener("click", rainbowButtonEventFunc);
     rainbow.removeEventListener("click", randomButtonEventFunc);

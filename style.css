@@ -192,3 +192,31 @@ body {
 .slider::-webkit-slider-thumb:active {
     transform: scale(0.8);
 }
+
+#color-picker-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#color-picker {
+    border-style: double;
+    border-radius: 4px;
+    width: 64px;
+    height: 34px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
+#color-picker:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#color-picker:active {
+    transform: scale(0.95);
+}
