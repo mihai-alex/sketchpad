@@ -1,6 +1,3 @@
-# sketchpad
-## Toy sketchpad app built using HTML, CSS and JavaScript.
-
 # Sketchpad
 Sketching app built with HTML, CSS and JavaScript that allows its user to sketch by clicking and dragging.
 
